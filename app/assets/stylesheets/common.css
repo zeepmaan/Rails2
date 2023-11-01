@@ -1,0 +1,62 @@
+.room_list {
+  display: flex;
+}
+
+.room {
+  list-style: none;
+  background-color: #f9ecd5;
+  width: fit-content;
+}
+
+.image {
+    width: 200px;
+    height: auto;
+}
+
+table th {
+    background-color: #191970;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+table td {
+    background-color: #f9ecd5;
+    text-align: center;
+  }
+
+.top_page {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.anchor {
+  text-decoration: none;
+}
+
+header {
+  background-color:#191970;
+}
+
+.header_logo {
+  color: white;
+
+}
+
+.header_image {
+  width: 40px;
+  height: auto;
+}
+
+.header_nav {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

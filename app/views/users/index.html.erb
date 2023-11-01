@@ -1,0 +1,37 @@
+<div class = "top_page">
+
+ <% if flash[:notice] %>
+   <p class="notice"><%= flash[:notice] %></p>
+ <% end %>
+ 
+<h1>Potepan Shareで<br>
+まだ体験したことのない<br>
+旅をしよう</h1>
+
+
+<%= form_with(url: search_users_path, local: true, method: :get) do |form| %>
+  <%= form.text_field :keyword, placeholder: "エリア名を入力" %>
+  <%= form.text_field :free_keyword, placeholder: "キーワード名を入力"  %>
+  <%= form.submit "検索" %>
+<% end %>
+
+<%#= form_with(url: search_free_users_path, local: true, method: :get) do |form| %>
+  <%#= form.text_field :keyword, placeholder: "キーワード名を入力"  %>
+  <%#= form.submit "検索" %>
+<%# end %>
+
+<% if user_signed_in? %>
+  <%= link_to "アカウント情報", account_users_path %>
+  <%= link_to "アカウント情報編集", edit_user_registration_path %>
+  <%= link_to "ユーザープロフィール",  profile_users_path %>
+  <% @user.each do |user| %>
+  <%= link_to "ユーザープロフィール編集",  [:edit, user] %>
+  <% end %>
+<% end %>
+
+</div>
+
+
+
+  
+

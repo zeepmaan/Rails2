@@ -8,9 +8,46 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+    <% if user_signed_in? %>
+      <div class="header_nav">
+        <div>
+          <h1><a class="anchor header_logo"href="http://localhost:3000/users">Potepan Share</a></h1>
+        </div>
+        <div class="dropdown">
+          <a class="btn btn-secondary btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class: "header_image"%>
+              <%= current_user.name %>
+            <% else %>
+              <img src="https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" alt="プロフィール画像" class="header_image">
+              <%= current_user.name %>
+            <% end %>
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="http://localhost:3000/rooms/new">施設の新規登録</a></li>
+              <li><%= link_to "予約済み施設一覧",reservations_path, class: "dropdown-item" %></li>
+              <li><%= link_to "登録済み施設一覧", rooms_path, class: "dropdown-item" %></li>
+              <li><%= link_to "アカウント情報", account_users_path, class: "dropdown-item" %></li>
+              <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            </ul>
+         </div>
+    <% else %>
+      <div class="header_nav">
+        <div>
+          <h1><a class="anchor header_logo"href="http://localhost:3000/users">Potepan Share</a></h1>
+        </div>
+        <div>
+          <%= link_to"新規登録",new_user_registration_path %>
+          <%= link_to"ログイン",new_user_session_path %>
+        </div>
+      </div>
+    <% end %>      
+   </header>
     <%= yield %>
   </body>
 </html>

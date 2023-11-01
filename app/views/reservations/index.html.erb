@@ -1,0 +1,50 @@
+<h1>My予約情報</h1>
+
+<table>
+   <thead>
+     <tr>
+       <th>施設画像</th>
+       <th>施設名</th>
+       <th>施設紹介</th>
+       <th>チェックイン</th>
+       <th>チェックアウト</th>
+       <th>人数</th>
+       <th>更新日時</th>
+       <th>予約確定日時</th>
+       <th>予約者(User_id)</th>
+       <th>部屋ID(Room_id)</th>
+       <th>合計料金</th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @reservations.each do |reservation| %>
+       <tr>
+         <td>
+           <% if reservation.image.attached? %>
+             <%= image_tag reservation.image, class: "image"%>
+           <% else %>
+             <div class = "images">
+               <img src="https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" alt="部屋画像" class="image">
+             </div>
+           <% end %>
+         </td>
+         <td><%= reservation.room_name %></td>
+         <td><%= reservation.room_info %></td>
+         <td><%= l reservation.check_in.to_date %></td>
+         <td><%= l reservation.check_out.to_date %></td>
+         <td><%= reservation.number_of_people %></td>
+         <td><%= l reservation.updated_at, format: :time %></td>
+         <td><%= l reservation.created_at, format: :time%></td>
+         <td><%= reservation.user_id %></td>
+         <td><%= reservation.room_id %></td>
+         <td><%= (reservation.room_price*reservation.number_of_people*((reservation.check_out).to_date - (reservation.check_in).to_date).numerator)%></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+ 
+ <p><%= link_to "新規予約", :rooms %></p>
+ <%= link_to "トップページ", :users %>
+
+

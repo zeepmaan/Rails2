@@ -1,0 +1,26 @@
+<h3>ユーサー編集</h3>
+
+<%= form_with model: @user do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :name,"名前" %></th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :introduction,"自己紹介" %></th>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :introduction,"プロフィール画像" %></th>
+      <td><%= f.file_field :image %></td>
+    </tr>
+    
+  </table>
+
+  
+
+  <ul>
+    <li><%= f.submit "編集完了" %></li>
+  </ul>
+<% end %>

@@ -1,0 +1,37 @@
+<h1>予約確認画面</h1>
+
+<table>
+  <thead>
+       <tr>
+       <th>チェックイン</th>
+       <th>チェックアウト</th>
+       <th>人数</th>
+       <th>日数</th>
+       <th>金額</th>
+     </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @reservation.check_in %></td>
+      <td><%= @reservation.check_out %></td>
+      <td><%= @reservation.number_of_people %></td>
+      <td><%= (@reservation.check_out - @reservation.check_in).numerator %></td>
+      <td><%= (@room.room_price*@reservation.number_of_people*(@reservation.check_out - @reservation.check_in)).numerator %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<%= form_with model: @reservation do |reservation|%>
+
+   <%= reservation.hidden_field :check_in %>
+   <%= reservation.hidden_field :check_out %>
+   <%= reservation.hidden_field :number_of_people %>
+   <%= reservation.hidden_field :user_id %>
+   <%= reservation.hidden_field :room_id %>
+  
+   <ul class="List">
+     <li><%=reservation.submit "確定"%></li>
+     <li><%= link_to '←戻る', :back %></li>
+   </ul>
+<% end %>
