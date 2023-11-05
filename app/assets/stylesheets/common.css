@@ -60,3 +60,46 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+.recommend_area {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 0 0 130px;
+  text-align: start;
+}
+
+.recommend {
+  max-width: 1440px;
+  margin: 250px auto 0 auto;
+  text-align: center;
+}
+
+.search_tokyo {
+  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg") ;
+  background-size: cover;
+  padding: 200px 100px;
+  text-decoration: none;
+  color: white;
+}
+
+.search_osaka {
+  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg") ;
+  background-size: cover;
+  padding: 200px 100px;
+  text-decoration: none;
+  color: white;
+}
+.search_kyoto {
+  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg") ;
+  background-size: cover;
+  padding: 200px 100px;
+  text-decoration: none;
+  color: white;
+}
+.search_sapporo {
+  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg") ;
+  background-size: cover;
+  padding: 200px 100px;
+  text-decoration: none;
+  color: white;
+}

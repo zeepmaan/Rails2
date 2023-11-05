@@ -15,22 +15,16 @@
   <%= form.submit "検索" %>
 <% end %>
 
-<%#= form_with(url: search_free_users_path, local: true, method: :get) do |form| %>
-  <%#= form.text_field :keyword, placeholder: "キーワード名を入力"  %>
-  <%#= form.submit "検索" %>
-<%# end %>
-
-<% if user_signed_in? %>
-  <%= link_to "アカウント情報", account_users_path %>
-  <%= link_to "アカウント情報編集", edit_user_registration_path %>
-  <%= link_to "ユーザープロフィール",  profile_users_path %>
-  <% @user.each do |user| %>
-  <%= link_to "ユーザープロフィール編集",  [:edit, user] %>
-  <% end %>
-<% end %>
-
 </div>
 
+
+<h2 class = recommend_area>おすすめエリア</h2>
+<div class="recommend">
+<a class="search_tokyo" href="http://localhost:3000/users/search?keyword=%E6%9D%B1%E4%BA%AC&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>東京</span><span>TOKYO</span></a>
+<a class="search_osaka" href="http://localhost:3000/users/search?keyword=%E5%A4%A7%E9%98%AA&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>大阪</span><span>OSAKA</span></a>
+<a class="search_kyoto" href="http://localhost:3000/users/search?keyword=%E4%BA%AC%E9%83%BD&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>京都</span><span>KYOTO</span></a>
+<a class="search_sapporo" href="http://localhost:3000/users/search?keyword=%E6%9C%AD%E5%B9%8C&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>札幌</span><span>SAPPORO</span></a>
+</div>
 
 
   

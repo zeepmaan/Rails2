@@ -10,9 +10,8 @@ class Reservation < ApplicationRecord
     validate :datecheck
     def datecheck
       if check_in == nil || check_out == nil
-
-      elsif self.check_in > self.check_out 
-      errors.add(:check_out, "は開始日より前の日付は登録できません。") 
+      elsif self.check_in >= self.check_out 
+      errors.add(:check_out, "はチェックイン以降の日付で登録してください。") 
       elsif self.check_in <= Date.today
       errors.add(:check_in, "は本日以降の日付で登録してください。") 
       end

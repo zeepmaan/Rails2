@@ -32,6 +32,6 @@
   
    <ul class="List">
      <li><%=reservation.submit "確定"%></li>
-     <li><%= link_to '←戻る', :back %></li>
+     <li><%= link_to '←戻る', 'javascript:history.back()' %></li>
    </ul>
 <% end %>
