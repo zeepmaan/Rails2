@@ -16,7 +16,7 @@
     <% if user_signed_in? %>
       <div class="header_nav">
         <div>
-          <h1><a class="anchor header_logo"href="http://localhost:3000/users">Potepan Share</a></h1>
+          <h1><%= link_to "Potepan Share",users_index_path,class: "anchor header_logo" %></h1>        
         </div>
         <div class="dropdown">
           <a class="btn btn-secondary btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -29,7 +29,7 @@
             <% end %>
           </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="http://localhost:3000/rooms/new">施設の新規登録</a></li>
+              <li><%= link_to "施設の新規登録",new_room_path, class: "dropdown-item" %></li>
               <li><%= link_to "予約済み施設一覧",reservations_path, class: "dropdown-item" %></li>
               <li><%= link_to "登録済み施設一覧", rooms_path, class: "dropdown-item" %></li>
               <li><%= link_to "アカウント情報", account_users_path, class: "dropdown-item" %></li>
@@ -39,7 +39,7 @@
     <% else %>
       <div class="header_nav">
         <div>
-          <h1><a class="anchor header_logo"href="http://localhost:3000/users">Potepan Share</a></h1>
+          <h1><%= link_to "Potepan Share",users_index_path,class: "anchor header_logo" %></h1>  
         </div>
         <div>
           <%= link_to"新規登録",new_user_registration_path %>

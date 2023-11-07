@@ -20,10 +20,10 @@
 
 <h2 class = recommend_area>おすすめエリア</h2>
 <div class="recommend">
-<a class="search_tokyo" href="http://localhost:3000/users/search?keyword=%E6%9D%B1%E4%BA%AC&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>東京</span><span>TOKYO</span></a>
-<a class="search_osaka" href="http://localhost:3000/users/search?keyword=%E5%A4%A7%E9%98%AA&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>大阪</span><span>OSAKA</span></a>
-<a class="search_kyoto" href="http://localhost:3000/users/search?keyword=%E4%BA%AC%E9%83%BD&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>京都</span><span>KYOTO</span></a>
-<a class="search_sapporo" href="http://localhost:3000/users/search?keyword=%E6%9C%AD%E5%B9%8C&free_keyword=&commit=%E6%A4%9C%E7%B4%A2"><span>札幌</span><span>SAPPORO</span></a>
+<%= link_to "東京TOKYO",("/users/search?keyword=東京&free_keyword=&commit=検索"),class: "search_tokyo" %>
+<%= link_to "大阪OSAKA",("/users/search?keyword=大阪&free_keyword=&commit=検索"),class: "search_osaka" %>
+<%= link_to "京都KYOTO",("/users/search?keyword=京都&free_keyword=&commit=検索"),class: "search_kyoto" %>
+<%= link_to "札幌SAPPORO",("/users/search?keyword=札幌&free_keyword=&commit=検索"),class: "search_sapporo" %>
 </div>
 
 
