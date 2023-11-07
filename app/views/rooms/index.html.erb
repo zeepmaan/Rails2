@@ -1,0 +1,47 @@
+<h3>登録施設一覧</h3>
+
+
+ 
+  <table>
+   <thead>
+     <tr>
+       <th>画像</th>
+       <th>施設名</th>
+       <th>紹介</th>
+       <th>宿泊料金（／日）</th>
+       <th>作成日</th>
+       <th>作成者ID</th>
+       <th></th>
+       <th></th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @rooms.each do |room| %>
+       <tr>
+         <td>
+            <% if room.images.attached? %>
+              <div class = "images">
+                <% room.images.each do |image| %>
+                  <%= image_tag image , class: "image"%>
+                <% end %>
+              </div>
+            <% else %>
+              <div class = "images">
+                <img src="https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" alt="部屋画像" class="image">
+              </div>
+            <% end %>
+         </td>
+         <td><%= link_to room.room_name,room_path(room) %></td>
+         <td><%= room.room_info %></td>
+         <td><%= room.room_price %></td>
+         <td><%= room.created_at.to_s(:datetime_jp) %></td>
+         <td><%= room.create_id %></td>
+         <td><%= link_to "詳細はこちら",room %></td>
+         <td><%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+       </tr>
+     <% end %>
+   </tbody>
+  </table>
+ <p><%= link_to "ルーム新規登録", :new_room %></p>
+ <%= link_to "トップページ", :users %>

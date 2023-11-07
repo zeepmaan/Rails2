@@ -1,0 +1,38 @@
+<h3>ルーム新規作成</h3>
+
+<%#= render "shared/error", obj: @room %>  
+
+<%= form_with model: @room do |f| %>
+<%= render "shared/error", obj: f.object %> 
+  <table>
+    <tr>
+      <th><%= f.label :room_name ,"部屋名" %></th>
+      <td><%= f.text_field :room_name %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :room_info ,"部屋情報" %></th>
+      <td><%= f.text_area :room_info %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :room_price ,"価格" %></th>
+      <td><%= f.text_field :room_price %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :room_address ,"住所" %></th>
+      <td><%= f.text_field :room_address %></td>
+    </tr>
+  </table>
+
+  <%= f.hidden_field :create_id, value: @current_user.id %>
+  <%= f.file_field :images, multiple: true %>
+
+  <div>
+    <ul>
+      <li><%= f.submit "登録完了する"%></li>
+      <li><%= link_to "ユーザー情報一覧に戻る", rooms_path %></li>
+    </ul>
+  </div>
+<% end %>

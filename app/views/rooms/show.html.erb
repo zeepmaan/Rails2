@@ -1,0 +1,64 @@
+<h3>部屋詳細</h3>
+
+<table>
+  <thead>
+       <tr>
+       <th>施設画像</th>
+       <th>施設名</th>
+       <th>施設紹介</th>
+       <th>金額（／日）</th>
+       <th></th>
+     </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% if @room.images.attached? %>
+          <% @room.images.each do |image| %>
+            <%= image_tag image , class: "image" %> 
+          <% end %>
+        <% else %>
+          <div class = "images">
+            <img src="https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" alt="部屋画像" class="image">
+          </div>
+        <% end %>
+      </td>
+      <td><%= @room.room_name %></td>
+      <td><%= @room.room_info %></td>
+      <td><%= @room.room_price %></td>
+      <td><%= link_to '←戻る', 'javascript:history.back()' %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_with model:@reservation, method: :post, url: confirm_reservations_path do |reservation|%>
+   <table>
+     <tr>
+       <th><%= reservation.label :check_in,"チェックイン"%></th>
+       <td><%= reservation.date_field :check_in %></td>
+     </tr>
+
+     <tr>
+       <th><%= reservation.label :check_out,"チェックアウト"%></th>
+       <td><%= reservation.date_field :check_out %></td>
+     </tr>
+
+     <tr>
+       <th><%= reservation.label :number_of_people,"人数"%></th>
+       <td><%= reservation.text_field :number_of_people %></td>
+     </tr>
+   </table>
+
+   <%= reservation.hidden_field :user_id, value: current_user.id %> <%#= @current_userだとerror %>
+   <%= reservation.hidden_field :room_id, value: @room.id %>
+  
+   <ul class="List">
+     <li><%=reservation.submit "確認画面に行く"%></li>
+   </ul>
+<% end %>
+
+<%= render "shared/error", obj: @reservation %> 
+
+<%= link_to "トップページ", :users %>
+
+

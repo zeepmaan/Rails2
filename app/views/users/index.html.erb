@@ -1,0 +1,31 @@
+<div class = "top_page">
+
+ <% if flash[:notice] %>
+   <p class="notice"><%= flash[:notice] %></p>
+ <% end %>
+ 
+<h1>Potepan Shareで<br>
+まだ体験したことのない<br>
+旅をしよう</h1>
+
+
+<%= form_with(url: search_users_path, local: true, method: :get) do |form| %>
+  <%= form.text_field :keyword, placeholder: "エリア名を入力" %>
+  <%= form.text_field :free_keyword, placeholder: "キーワード名を入力"  %>
+  <%= form.submit "検索" %>
+<% end %>
+
+</div>
+
+
+<h2 class = recommend_area>おすすめエリア</h2>
+<div class="recommend">
+<%= link_to "東京TOKYO",("/users/search?keyword=東京&free_keyword=&commit=検索"),class: "search_tokyo" %>
+<%= link_to "大阪OSAKA",("/users/search?keyword=大阪&free_keyword=&commit=検索"),class: "search_osaka" %>
+<%= link_to "京都KYOTO",("/users/search?keyword=京都&free_keyword=&commit=検索"),class: "search_kyoto" %>
+<%= link_to "札幌SAPPORO",("/users/search?keyword=札幌&free_keyword=&commit=検索"),class: "search_sapporo" %>
+</div>
+
+
+  
+
